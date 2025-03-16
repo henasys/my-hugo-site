@@ -5,8 +5,7 @@ backend:
 media_folder: "static/images/uploads" # 미디어 파일이 저장될 경로
 public_folder: "/images/uploads" # CMS에서 사용할 때의 URL 경로
 
-# Front Matter 포맷을 TOML로 변경
-frontmatterFormat: "toml"
+publish_mode: editorial_workflow
 
 collections:
   - name: "post" # 콘텐츠 타입의 식별자
@@ -29,8 +28,13 @@ collections:
       
   - name: "page" # 페이지용 콘텐츠 타입
     label: "Page"
-    folder: "content"
+    folder: "content/pages"
     create: true
     fields:
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Last Modified Date", name: "lastmod", widget: "datetime", required: false}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
+      - {label: "Weight", name: "weight", widget: "number", required: false}
+      - {label: "Menu", name: "menu", widget: "string", required: false}
       - {label: "Body", name: "body", widget: "markdown"} 
