@@ -19,7 +19,7 @@ collections:
       - {label: "Last Modified Date", name: "lastmod", widget: "datetime", required: false}
       - {label: "Draft", name: "draft", widget: "boolean", default: false}
       - {label: "Featured Image", name: "image", widget: "image", required: false}
-      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Description", name: "description", widget: "text", required: false}
       - {label: "Keywords", name: "keywords", widget: "list", required: false}
       - {label: "Categories", name: "categories", widget: "list", required: false}
       - {label: "Tags", name: "tags", widget: "list", required: false}
