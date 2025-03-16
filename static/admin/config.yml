@@ -1,0 +1,28 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/images/uploads" # 미디어 파일이 저장될 경로
+public_folder: "/images/uploads" # CMS에서 사용할 때의 URL 경로
+
+collections:
+  - name: "post" # 콘텐츠 타입의 식별자
+    label: "Post" # CMS에서 보여질 이름
+    folder: "content/posts" # 콘텐츠가 저장될 폴더
+    create: true # 새 항목 생성 허용
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # 파일 이름 형식
+    fields: # 각 포스트의 필드 정의
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+      
+  - name: "page" # 페이지용 콘텐츠 타입
+    label: "Page"
+    folder: "content"
+    create: true
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"} 
