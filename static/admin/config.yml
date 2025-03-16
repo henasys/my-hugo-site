@@ -5,6 +5,9 @@ backend:
 media_folder: "static/images/uploads" # 미디어 파일이 저장될 경로
 public_folder: "/images/uploads" # CMS에서 사용할 때의 URL 경로
 
+# Front Matter 포맷을 TOML로 변경
+frontmatterFormat: "toml"
+
 collections:
   - name: "post" # 콘텐츠 타입의 식별자
     label: "Post" # CMS에서 보여질 이름
@@ -14,10 +17,15 @@ collections:
     fields: # 각 포스트의 필드 정의
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Last Modified Date", name: "lastmod", widget: "datetime", required: false}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
       - {label: "Featured Image", name: "image", widget: "image", required: false}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Keywords", name: "keywords", widget: "list", required: false}
+      - {label: "Categories", name: "categories", widget: "list", required: false}
       - {label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Weight", name: "weight", widget: "number", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
       
   - name: "page" # 페이지용 콘텐츠 타입
     label: "Page"
